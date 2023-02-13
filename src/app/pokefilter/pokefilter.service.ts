@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { catchError, forkJoin, of, ReplaySubject } from 'rxjs';
 import { FilterOptions } from '../core/models/pokemon';
 import { FilterOptionRestService } from '../core/rest/filter-option.rest.service';
-import { ModalModule } from '../shared/modal/modal.module';
-import { ModalService } from '../shared/modal/modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class PokefilterService {
 
   constructor(
     private filterOptionRest: FilterOptionRestService,
-    private modalService: ModalService
+    private toastr: ToastrService,
   ) { }
 
   // TODO: Better to use a specific error modal as opposed to alert.
@@ -31,10 +30,7 @@ export class PokefilterService {
       typesOfPoke: this.filterOptionRest.getTypesOfPokeOptions()
     })
       .pipe(catchError(err => {
-        this.modalService.alert({
-          title: 'Error',
-          message: 'There was an error loading the filter options. Please try again later.'
-        })
+        this.toastr.error('There was an error loading the filter options. Please try again later.')
         return of(err);
        }))
       .subscribe(filterOptions => {
