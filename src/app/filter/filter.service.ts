@@ -7,7 +7,7 @@ import { FilterOptionRestService } from '../core/rest/filter-option.rest.service
 @Injectable({
   providedIn: 'root'
 })
-export class PokefilterService {
+export class FilterService {
 
   private _filterOptions = new ReplaySubject<FilterOptions>(1);
   filterOptions$ = this._filterOptions.asObservable();
