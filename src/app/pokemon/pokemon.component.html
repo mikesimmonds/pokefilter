@@ -1,1 +1,6 @@
-<p>pokemon works!</p>
+<app-filter></app-filter>
+<app-pokemon-list>
+  <ng-container *ngFor="let pokemon of pokemon$ | async">
+    <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>
+  </ng-container>
+</app-pokemon-list>

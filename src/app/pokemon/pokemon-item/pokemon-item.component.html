@@ -1,0 +1,18 @@
+<div class="pokemon-container">
+  <div class="image-container">
+    <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name + 'image'">
+  </div>
+  <div class="info-container">
+    <header>{{pokemon.name}}</header>
+    <section>
+      <dl>
+        <dt>Height:</dt>
+        <dd>{{pokemon.height}}</dd>
+        <dt>Weight:</dt>
+        <dd>{{pokemon.weight}}</dd>
+        <dt>XP:</dt>
+        <dd>{{pokemon.base_experience}}</dd>
+      </dl>
+    </section>
+  </div>
+</div>

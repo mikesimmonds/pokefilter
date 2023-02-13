@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../models/pokemon';
+import { environment } from 'src/environments/environment';
+import { PaginatedResponse, Pokemon } from '../models/pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +9,17 @@ import { Pokemon } from '../models/pokemon';
 export class PokemonRestService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   getAllOriginalPokemon() {
-    const url = 'held-item';
+    const url = environment.baseUrl + 'pokemon';
     const limit = 151;
-    return this.http.get<Array<Pokemon>>(url, {params: {limit: limit}});
+    return this.http.get<PaginatedResponse<Pokemon>>(url, {params: {limit: limit}});
   }
 
   getPokemonById(id: number) {
-    const url = 'pokemon/' + id;
+    const url = environment.baseUrl + 'pokemon/' + id;
     return this.http.get<Pokemon>(url);
   }
 }

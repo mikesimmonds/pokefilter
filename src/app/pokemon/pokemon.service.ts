@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { forkJoin, ReplaySubject, switchMap } from 'rxjs';
+import { forkJoin, map, ReplaySubject, switchMap } from 'rxjs';
 import { Pokemon } from '../core/models/pokemon';
 import { PokemonRestService } from '../core/rest/pokemon.rest.service';
 
@@ -18,7 +18,9 @@ export class PokemonService {
   // TODO: Error handling in case of sinlge pokemon failure.
   getAllPokemon() {
     this.pokemonRest.getAllOriginalPokemon()
-      .pipe(switchMap(pokemon => {
+      .pipe(
+        map(paginatedResponse => paginatedResponse.results),
+        switchMap(pokemon => {
         return forkJoin(pokemon.map(p => this.pokemonRest.getPokemonById(p.id)));
       }))
       .subscribe(allPokemon => {

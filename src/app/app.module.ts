@@ -7,16 +7,22 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FilterComponent } from './filter/filter.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
+import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
+import { PokemonItemComponent } from './pokemon/pokemon-item/pokemon-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
-    PokemonComponent
+    PokemonComponent,
+    PokemonListComponent,
+    PokemonItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CoreModule,
     ToastrModule.forRoot()
   ],

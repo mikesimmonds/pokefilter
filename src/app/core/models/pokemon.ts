@@ -1,5 +1,12 @@
 // This was generated using Chat GPT for speed and convenience and the carefully checked manually.
 
+export interface PaginatedResponse<T> {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Array<T>;
+}
+
 export interface Ability {
   is_hidden: boolean;
   slot: number;
