@@ -17,6 +17,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FilterOptionRestService {
+
+  // TODO: The API is returning unrelated filter options aas they are for all of the pokeon in the pokeApi, not just the initial 151.
   filterCountLimit = 5000;
 
   constructor(private http: HttpClient) {}
