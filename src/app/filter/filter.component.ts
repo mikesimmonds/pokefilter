@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FilterOptions } from '../core/models/pokemon';
 import { FilterService } from './filter.service';
 
@@ -9,19 +10,15 @@ import { FilterService } from './filter.service';
 })
 export class FilterComponent implements OnInit {
 
+  filters$: Observable<FilterOptions>;
+
   constructor(
     private filterService: FilterService,
   ) {
-    this.filterService.getFilterOptions().subscribe(filters => {
-      this.createFilters(filters);
-    })
+    this.filters$ = this.filterService.getFilterOptions()
    }
 
   ngOnInit(): void {
-  }
-
-  createFilters(filters: FilterOptions) {
-    console.log(`filters: `, filters)
   }
 
 }

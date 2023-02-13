@@ -1,1 +1,15 @@
-<p>filter works!</p>
+<ng-container
+*ngFor="let filter of (filters$ | async) | keyvalue"
+>
+<label [for]="'id' + filter.key">
+  {{ filter.key | titlecase }}
+</label>
+ <ng-select
+ [items]="filter.value"
+  bindLabel="name"
+  bindValue="name"
+  [multiple]="true"
+  [clearable]="true"
+  [id]="'id-'+filter.key"
+ ></ng-select>
+</ng-container>
