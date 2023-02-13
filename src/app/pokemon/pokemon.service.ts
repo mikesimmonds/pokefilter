@@ -15,13 +15,13 @@ export class PokemonService {
     private pokemonRest: PokemonRestService
   ) { }
 
-  // TODO: Error handling in case of sinlge pokemon failure.
+  // TODO: Error handling in case of single pokemon failure.
   getAllPokemon() {
     this.pokemonRest.getAllOriginalPokemon()
       .pipe(
         map(paginatedResponse => paginatedResponse.results),
         switchMap(pokemon => {
-        return forkJoin(pokemon.map(p => this.pokemonRest.getPokemonById(p.id)));
+        return forkJoin(pokemon.map(p => this.pokemonRest.getPokemonByUrl(p.url)));
       }))
       .subscribe(allPokemon => {
         this._pokemon.next(allPokemon);

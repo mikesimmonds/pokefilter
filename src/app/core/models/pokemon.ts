@@ -7,6 +7,11 @@ export interface PaginatedResponse<T> {
   results: Array<T>;
 }
 
+export interface AllPokemonDTO {
+  name: string;
+  url: string;
+}
+
 export interface Ability {
   is_hidden: boolean;
   slot: number;
