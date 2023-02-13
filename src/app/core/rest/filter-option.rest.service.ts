@@ -16,17 +16,17 @@ export class FilterOptionRestService {
   }
 
   getFormsOfPokeOptions() {
-    const url = environment.baseUrl + 'form';
+    const url = environment.baseUrl + 'pokemon-form';
     return this.http.get<PaginatedResponse<FormOfPoke>>(url);
   }
 
   getGameIndicesOptions() {
-    const url = environment.baseUrl + 'game-indice';
+    const url = environment.baseUrl + 'version';
     return this.http.get<PaginatedResponse<GameIndex>>(url);
   }
 
   getHeldItemsOptions() {
-    const url = environment.baseUrl + 'held-item';
+    const url = environment.baseUrl + 'item';
     return this.http.get<PaginatedResponse<HeldItem>>(url);
   }
 
@@ -36,7 +36,7 @@ export class FilterOptionRestService {
   }
 
   getSpeciesOptions() {
-    const url = environment.baseUrl + 'species';
+    const url = environment.baseUrl + 'pokemon-species';
     return this.http.get<PaginatedResponse<Species>>(url);
   }
 
