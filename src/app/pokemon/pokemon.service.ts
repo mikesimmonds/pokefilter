@@ -30,7 +30,6 @@ export class PokemonService {
   }
 
   filterPokemon(filter: FilterOptions) {
-    console.log(`filter: `, filter)
     this.pokemon$.pipe(take(1)).subscribe(pokemon => {
       const filteredPokemon = pokemon.filter(p => {
         const filterableP = this.mapFilterableItems(p);
