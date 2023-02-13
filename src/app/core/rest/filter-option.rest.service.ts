@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
   Ability,
+  BaseFilterResponse,
   FormOfPoke,
   GameIndex,
   HeldItem,
@@ -25,56 +26,56 @@ export class FilterOptionRestService {
 
   getAbilitiesOptions() {
     const url = environment.baseUrl + 'ability';
-    return this.http.get<PaginatedResponse<Ability>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getFormsOfPokeOptions() {
     const url = environment.baseUrl + 'pokemon-form';
-    return this.http.get<PaginatedResponse<FormOfPoke>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getGameIndicesOptions() {
     const url = environment.baseUrl + 'version';
-    return this.http.get<PaginatedResponse<GameIndex>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getHeldItemsOptions() {
     const url = environment.baseUrl + 'item';
-    return this.http.get<PaginatedResponse<HeldItem>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getMovesOptions() {
     const url = environment.baseUrl + 'move';
-    return this.http.get<PaginatedResponse<Move>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getSpeciesOptions() {
     const url = environment.baseUrl + 'pokemon-species';
-    return this.http.get<PaginatedResponse<Species>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getStatsOptions() {
     const url = environment.baseUrl + 'stat';
-    return this.http.get<PaginatedResponse<Stat>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }
 
   getTypesOfPokeOptions() {
     const url = environment.baseUrl + 'type';
-    return this.http.get<PaginatedResponse<TypeOfPoke>>(url, {
+    return this.http.get<PaginatedResponse<BaseFilterResponse>>(url, {
       params: { limit: this.filterCountLimit },
     });
   }

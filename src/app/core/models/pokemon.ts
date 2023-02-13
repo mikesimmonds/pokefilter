@@ -7,6 +7,11 @@ export interface PaginatedResponse<T> {
   results: Array<T>;
 }
 
+export interface BaseFilterResponse {
+  name: string;
+  url: string;
+}
+
 export interface AllPokemonDTO {
   name: string;
   url: string;
@@ -119,7 +124,7 @@ export interface Pokemon {
   types: Array<TypeOfPoke>;
 }
 
-export interface FilterOptions {
+export interface FilterOptionsDTO {
   abilities: Array<Ability>;
   formsOfPoke: Array<FormOfPoke>;
   gameIndices: Array<GameIndex>;
@@ -128,4 +133,15 @@ export interface FilterOptions {
   species: Array<Species>;
   stats: Array<Stat>;
   typesOfPoke: Array<TypeOfPoke>;
+}
+
+export interface FilterOptions {
+  abilities: Array<string>;
+  formsOfPoke:Array<string>;
+  gameIndices: Array<string>;
+  heldItems: Array<string>;
+  moves: Array<string>;
+  species: Array<string>;
+  stats: Array<string>;
+  typesOfPoke: Array<string>;
 }
